@@ -11,6 +11,12 @@
         "appSharedStorageAccountName": {
             "value": "dfcdevappsharedstr"
         },
+        "appServiceName": {
+            "value": "dfc-foo-app-jobprofile-currentop-as-ver"
+        },
+        "functionAppName": {
+            "value": "dfc-foo-app-jobprofile-currentop-fa-ver"
+        },
         "cosmosDBName": {
             "value": "dfc-dev-app-sharedresources-cdb"
         },

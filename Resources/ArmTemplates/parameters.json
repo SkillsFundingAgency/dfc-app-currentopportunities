@@ -11,6 +11,12 @@
         "appSharedStorageAccountName": {
             "value": "__appSharedStorageAccountName__"
         },
+        "appServiceName": {
+            "value": "__AppServiceName__"
+        },
+        "functionAppName": {
+            "value": "__FunctionAppName__"
+        },
         "aseHostingEnvironmentName": {
             "value": "__aseHostingEnvironmentName__"
         },
