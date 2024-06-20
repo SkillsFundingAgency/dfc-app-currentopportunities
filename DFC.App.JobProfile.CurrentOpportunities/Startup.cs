@@ -152,10 +152,11 @@ namespace DFC.App.JobProfile.CurrentOpportunities
             policyRegistry.AddRateLimitPolicy(nameof(RefreshClientOptions), corePolicyOptions.HttpRateLimitRetry);
             policyRegistry.AddStandardPolicies(nameof(RefreshClientOptions), corePolicyOptions);
 
-            services.BuildHttpClient<IApprenticeshipVacancyApi, ApprenticeshipVacancyApi, RefreshClientOptions>(configuration, nameof(RefreshClientOptions))
-            .AddPolicyHandlerFromRegistry($"{nameof(RefreshClientOptions)}_{nameof(CorePolicyOptions.HttpRateLimitRetry)}")
-            .AddPolicyHandlerFromRegistry($"{nameof(RefreshClientOptions)}_{nameof(CorePolicyOptions.HttpRetry)}")
-            .AddPolicyHandlerFromRegistry($"{nameof(RefreshClientOptions)}_{nameof(CorePolicyOptions.HttpCircuitBreaker)}");
+            services.BuildHttpClient<IApprenticeshipVacancyApi, ApprenticeshipVacancyApi, RefreshClientOptions>(
+                    configuration, nameof(RefreshClientOptions))
+                .AddPolicyHandlerFromRegistry(
+                    $"{nameof(RefreshClientOptions)}_{nameof(CorePolicyOptions.HttpRateLimitRetry)}")
+                .AddPolicyHandlerFromRegistry($"{nameof(RefreshClientOptions)}_{nameof(CorePolicyOptions.HttpRetry)}");
 
             services.AddScoped<IAVAPIService, AVAPIService>();
             services.AddScoped<Data.Contracts.IAuditService, AuditService>();

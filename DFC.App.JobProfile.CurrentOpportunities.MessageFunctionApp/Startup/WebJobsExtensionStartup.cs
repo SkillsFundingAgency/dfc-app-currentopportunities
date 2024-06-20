@@ -47,8 +47,7 @@ namespace DFC.App.JobProfile.CurrentOpportunities.MessageFunctionApp.Startup
 
             builder.Services
                 .BuildHttpClient<IRefreshService, RefreshService, RefreshClientOptions>(configuration, nameof(RefreshClientOptions))
-                .AddPolicyHandlerFromRegistry($"{nameof(RefreshClientOptions)}_{nameof(CorePolicyOptions.HttpRetry)}")
-                .AddPolicyHandlerFromRegistry($"{nameof(RefreshClientOptions)}_{nameof(CorePolicyOptions.HttpCircuitBreaker)}");
+                .AddPolicyHandlerFromRegistry($"{nameof(RefreshClientOptions)}_{nameof(CorePolicyOptions.HttpRetry)}");
 
             builder.Services
                 .AddScoped<IHttpClientService, HttpClientService>()

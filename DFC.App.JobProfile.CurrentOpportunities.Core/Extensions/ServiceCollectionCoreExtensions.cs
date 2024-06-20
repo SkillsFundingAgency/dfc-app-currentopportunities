@@ -40,14 +40,6 @@ namespace DFC.App.JobProfile.CurrentOpportunities.Core.Extensions
                         policyOptions.HttpRetry.Count,
                         retryAttempt => TimeSpan.FromSeconds(Math.Pow(policyOptions.HttpRetry.BackoffPower, retryAttempt))));
 
-            policyRegistry.Add(
-                $"{keyPrefix}_{nameof(CorePolicyOptions.HttpCircuitBreaker)}",
-                HttpPolicyExtensions
-                    .HandleTransientHttpError()
-                    .CircuitBreakerAsync(
-                        handledEventsAllowedBeforeBreaking: policyOptions.HttpCircuitBreaker.ExceptionsAllowedBeforeBreaking,
-                        durationOfBreak: policyOptions.HttpCircuitBreaker.DurationOfBreak));
-
             return policyRegistry;
         }
 
